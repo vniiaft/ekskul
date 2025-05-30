@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pendaftaran</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #e2ff05 0%, #eb0e28 100%);
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+    .login-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 40px 35px;
+      width: 320px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 25px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      font-size: 24px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="text"],
+    input[type="text"] {
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      border-radius: 8px;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #fff;
+      transition: background 0.3s ease;
+    }
+    input[type="text"]::placeholder,
+    input[type="password"]::placeholder,
+    input[type="text"]::placeholder,
+    input[type="text"]::placeholder{
+      color: #ddd;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="text"]:fokus,
+    input[type="text"]:focus {
+      background: rgba(255, 255, 255, 0.3);
+      outline: none;
+    }
+    button {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: black;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background: black;
+    }
+    .error-message {
+      background-color: #ff6b6b;
+      border-radius: 6px;
+      padding: 10px;
+      color: white;
+      margin-bottom: 15px;
+      font-size: 14px;
+      display: none;
+    }
+    @media (max-width: 400px) {
+      .login-container {
+        width: 90%;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container" role="main" aria-label="Login Form">
+    <h2>Login pada akun anda</h2>
+    <div class="error-message" id="errorMessage" aria-live="assertive"></div>
+    <form id="loginForm" novalidate>
+      <input
+        type="text"
+        id="email"
+        name="email"
+        placeholder="Email"
+        autocomplete="email"
+        required
+        aria-required="true"
+      />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+        autocomplete="current-password"
+        required
+        aria-required="true"
+        minlength="6"
+      />
+      <input
+        type="text"
+        id="nama"
+        name="nama"
+        placeholder="Nama Lengkap"
+        autocomplete="nama"
+        required
+        aria-required="true"
+      />
+      <input
+        type="text"
+        id="alamat"
+        name="alamat"
+        placeholder="Alamat"
+        autocomplete="alamat"
+        required
+        aria-required="true"
+      />
+      
+      <div id="notifikasi"></div>
+      <button onclick="tampilkanNotifikasi()">Daftar</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const errorMessage = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      errorMessage.style.display = 'none';
+      errorMessage.textContent = '';
+
+      const email = form.email.value.trim();
+      const password = form.password.value;
+      const nama = form.nama.value.trim();
+      const alamat = form.alamat.value.trim();
+
+      if (!email) {
+        showError('Please enter your email.');
+        return;
+      }
+      if (!password) {
+        showError('Please enter your password.');
+        return;
+      }
+      if (password.length < 6) {
+        showError('Password must be at least 6 characters.');
+        return;
+      }
+      if (!nama) {
+        showError('Please enter your name.');
+        return;
+      }
+      if (!alamat) {
+        showError('Please enter your alamat.');
+        return;
+      }
+
+      // alert success
+      alert('Anda Sudah Terdaftar ' + nama +'!');
+      form.reset();
+    });
+
+    function showError(message) {
+      errorMessage.textContent = message;
+      errorMessage.style.display = 'block';
+    }
+
+    function tampilkanNotifikasi() {
+      const notif = document.getElementById("notifikasi");
+      notif.classList.add("show");
+
+      setTimeout(() =>{
+        notif.classList.remove("show");
+      }, 3000);
+
+      setTimeout(()=>{
+        window.location.href = "login.html";
+      }, 4000);
+    }
+  </script>
+</body>
+</html>

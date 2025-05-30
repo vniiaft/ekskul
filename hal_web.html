@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website ekstrakulikuler</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+&nbsp;
+&nbsp;
+
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f9fafb;
+      color: #cc162c;
+      line-height: 1.6;
+    }
+    header {
+      background: #eb0e28;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 600;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #a5b4fc;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .hero {
+      background: linear-gradient(135deg, #e2ff05 0%, #eb0e28 100%);
+      color: white;
+      padding: 60px 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(118, 75, 162, 0.35);
+    }
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    section {
+      margin-top: 60px;
+    }
+    section h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #eb0e28;
+      border-bottom: 3px solid #e2ff05;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    #about p {
+      font-size: 16px;
+      max-width: 700px;
+    }
+    form {
+      max-width: 500px;
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      font-family: inherit;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    form input:focus, form textarea:focus {
+      outline: none;
+      border-color: #4f46e5;
+      box-shadow: 0 0 6px #4f46e5aa;
+    }
+    form button {
+      background: black;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background: black;
+    }
+    .form-message {
+      margin-top: 15px;
+      font-size: 15px;
+      font-weight: 600;
+      color: green;
+      display: none;
+    }
+    .form-error {
+      color: #e53e3e;
+      display: none;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+&nbsp;
+&nbsp;
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 28px;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+&nbsp;
+&nbsp;
+
+<header>
+  <h1>Ekstrakulikuler</h1>
+  <nav aria-label="Primary navigation">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#isi-data">Isi Data</a>
+    <a href="#pilih-eskul">pilih eskul</a>
+    <a href="#laporan">laporan</a>
+  </nav>
+</header>
+&nbsp;
+&nbsp;
+
+<main class="container">
+  <section id="hero" class="hero" tab-index="-1">
+    <h2>Selamat Datang Di website <br> pendaftaran eskul Sekolah LPPM RI Kota Bandung!</h2>
+    <p>Bingung Mau pilih Ekstrakulikuler Apa?</p>
+  </section>
+&nbsp;
+&nbsp;
+
+  <section id="about" tabindex="-1">
+    <h3>About</h3>
+    <p>
+      Kami membuat website ini untuk mempermudah Anda mendaftar eskul. <br>
+      pastikan diisi sesuai dengan minat dan kemampuan Anda yee, Semoga Anda bisa konsisten untuk eskulnya ^ ^ <br>
+    </p>
+  </section>
+&nbsp;
+&nbsp;
+
+<section id="isi-data">
+  <h3>Isi Data</h3>
+  <form id="form-isi-data">
+    <label for="nama">Nama Lengkap:</label>
+    <input type="text" id="nama" name="nama" required>
+
+    <label for="kelas">Kelas:</label>
+    <input type="text" id="kelas" name="kelas" required>
+
+    <label for="nis">Nomor Induk Siswa (NIS):</label>
+    <input type="text" id="nis" name="nis" required>
+
+    <button type="submit">Submit</button>
+    <p class="form-message" id="msg-sukses">Data berhasil disimpan!</p>
+  </form>
+</section>
+  
+  <section id="pilih-eskul">
+  <h3>Pilih Ekstrakurikuler</h3>
+  <form id="form-pilih-eskul">
+    <label for="eskul">Pilih Ekstrakurikuler:</label>
+    <select id="eskul" name="eskul" required>
+      <option value="">-- Pilih salah satu --</option>
+      <option value="Futsal">Futsal</option>
+      <option value="Paskibra">Paskibra</option>
+      <option value="Band">Band</option>
+      <option value="pramuka">Pramuka</option>
+      <option value="Programmer">Programmer</option>
+    </select>
+
+    <button type="submit">Simpan</button>
+    <p class="form-message" id="msg-pilih">Pilihan berhasil disimpan!</p>
+    <p class="form-error" id="msg-error">Harap isi data terlebih dahulu.</p>
+  </form>
+</section>
+  
+  <section id="laporan">
+  <h3>Laporan Pendaftar</h3>
+  <button onclick="tampilkanLaporan()">Lihat Laporan</button>
+  <table id="tabel-laporan" border="1" style="display:none; margin-top: 10px;">
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Kelas</th>
+        <th>NIS</th>
+        <th>Ekstrakurikuler</th>
+      </tr>
+    </thead>
+    <tbody id="isi-tabel-laporan">
+    </tbody>
+  </table>
+</section>
+
+
+<script>
+  let dataSiswa = null;
+
+  // Proses form isi data
+  document.getElementById("form-isi-data").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const nama = document.getElementById("nama").value;
+    const kelas = document.getElementById("kelas").value;
+    const nis = document.getElementById("nis").value;
+
+    dataSiswa = { nama, kelas, nis };
+    localStorage.setItem("dataSiswa", JSON.stringify(dataSiswa));
+    document.getElementById("msg-sukses").style.display = "block";
+  });
+
+  // Proses form pilih eskul
+  document.getElementById("form-pilih-eskul").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const eskul = document.getElementById("eskul").value;
+    const data = localStorage.getItem("dataSiswa");
+
+    if (!data) {
+      document.getElementById("msg-error").style.display = "block";
+      return;
+    }
+
+    const pilihanTersimpan = localStorage.getItem("pilihanEskul");
+    if (pilihanTersimpan) {
+      alert("Pilihan sudah disimpan dan tidak dapat diubah lagi.");
+      return;
+    }
+
+    localStorage.setItem("pilihanEskul", eskul);
+    document.getElementById("msg-pilih").style.display = "block";
+    document.getElementById("msg-error").style.display = "none";
+  });
+
+  // Fungsi saat tombol submit ditekan
+  document.getElementById("form-pendaftaran").addEventListener("submit", function (e) {
+    e.preventDefault();
+    
+    const nama = document.getElementById("nama").value;
+    const kelas = document.getElementById("kelas").value;
+    const nis = document.getElementById("nis").value;
+    const eskul = document.getElementById("eskul").value;
+
+    if (!nama || !kelas || !nis || eskul === "") {
+      document.getElementById("msg-error").style.display = "block";
+      return;
+    }
+
+    localStorage.setItem("dataSiswa", JSON.stringify({ nama, kelas, nis }));
+    localStorage.setItem("pilihanEskul", eskul);
+
+    alert("Data berhasil disimpan!");
+    document.getElementById("form-pendaftaran").reset();
+    document.getElementById("msg-error").style.display = "none";
+  });
+
+  // ⬇ Tambahkan fungsi laporan di bawah sini, di luar event listener
+  function tampilkanLaporan() {
+    const data = JSON.parse(localStorage.getItem("dataSiswa"));
+    const eskul = localStorage.getItem("pilihanEskul");
+
+    if (!data || !eskul) {
+      alert("Belum ada data pendaftaran.");
+      return;
+    }
+
+    const tbody = document.getElementById("isi-tabel-laporan");
+    tbody.innerHTML = `
+      <tr>
+        <td>${data.nama}</td>
+        <td>${data.kelas}</td>
+        <td>${data.nis}</td>
+        <td>${eskul}</td>
+      </tr>
+    `;
+
+    document.getElementById("tabel-laporan").style.display = "table";
+  }
+
+</script>
+
+
+</body>
+</html>

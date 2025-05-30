@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #e2ff05 0%, #eb0e28 100%);
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+    .login-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 40px 35px;
+      width: 320px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 25px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      font-size: 24px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input[type="text"],
+    input[type="password"] {
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      border-radius: 8px;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #fff;
+      transition: background 0.3s ease;
+    }
+    input[type="text"]::placeholder,
+    input[type="password"]::placeholder {
+      color: #ddd;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      background: rgba(255, 255, 255, 0.3);
+      outline: none;
+    }
+    button {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: black;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background: #5145cd;
+    }
+    .error-message {
+      background-color: #ff6b6b;
+      border-radius: 6px;
+      padding: 10px;
+      color: white;
+      margin-bottom: 15px;
+      font-size: 14px;
+      display: none;
+    }
+    @media (max-width: 400px) {
+      .login-container {
+        width: 90%;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container" role="main" aria-label="Login Form">
+    <h2>Login to Your Account</h2>
+    <div class="error-message" id="errorMessage" aria-live="assertive"></div>
+    <form id="loginForm" novalidate>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Username or Email"
+        autocomplete="username"
+        required
+        aria-required="true"
+      />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+        autocomplete="current-password"
+        required
+        aria-required="true"
+        minlength="6"
+        />
+      <button onclick="location.href='pendaftaran2.html'">Daftar</button>  <br>
+      <button onclick="location.href='hal_web.html'">Log In</button>
+
+    </form>
+  </div>
+
+  <script>
+  const form = document.getElementById('loginForm');
+  const errorMessage = document.getElementById('errorMessage');
+
+  // Simulasi data pengguna yang terdaftar
+  const users = [
+    { username: 'admin', password: 'admin123' },
+    { username: 'user1', password: 'password1' },
+    { username: 'user2', password: 'password2' }
+  ];
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    errorMessage.style.display = 'none';
+    errorMessage.textContent = '';
+
+    const username = form.username.value.trim();
+    const password = form.password.value;
+
+    if (!username) {
+      showError('Please enter your email.');
+      return;
+    }
+    if (!password) {
+      showError('Please enter your password.');
+      return;
+    }
+    if (password.length < 6) {
+      showError('Password must be at least 6 characters.');
+      return;
+    }
+
+    // Cek apakah akun ada di daftar user
+    const foundUser = users.find(user => user.username === username && user.password === password);
+
+    if (!foundUser) {
+      showError('Akun tidak ditemukan. Silakan daftar terlebih dahulu.');
+      return;
+    }
+
+    // Jika login berhasil
+    alert('Login successful! Username: ' + username);
+    form.reset();
+  });
+
+  function showError(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
